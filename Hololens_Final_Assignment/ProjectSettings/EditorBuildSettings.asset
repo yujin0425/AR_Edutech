@@ -11,9 +11,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/App/Scenes/Test_Gesture1.unity
     guid: 66798193e760393469a05d776ef161a9
-  - enabled: 1
+  - enabled: 0
     path: Assets/App/Scenes/Service_Test.unity
     guid: 6e414733916f2b947bc807b90ddc1ec2
+  - enabled: 0
+    path: Assets/App/Scenes/Gesture.unity
+    guid: ff0893557d089c243b30006bbbbd3203
+  - enabled: 1
+    path: Assets/App/Scenes/XRInterface.unity
+    guid: 81588d3db62709f4286026f0aac96b39
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c5fad86e22e97b5428346ca5323898af, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: a242c232b7941cf449230369747f0644, type: 2}

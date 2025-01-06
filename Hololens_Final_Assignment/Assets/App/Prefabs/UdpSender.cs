@@ -12,7 +12,6 @@ public class UdpSender : MonoBehaviour
     public string ipAddress = "192.168.0.115"; // Limo 노트북의 IP 주소
     public int port = 2020; // Ubuntu에서 수신할 포트 번호
     public PressableButtonHoloLens2 sendButton; // MRTK의 PressableButtonHoloLens2 사용
-    public int inputType; //1: UI, 2: Gesture
 
     public int gestureNUM;
 
@@ -20,7 +19,6 @@ public class UdpSender : MonoBehaviour
 
     void Start()
     {
-        inputType = 1;
         // UdpClient 초기화
         udpClient = new UdpClient();
 
@@ -31,61 +29,21 @@ public class UdpSender : MonoBehaviour
     void Update()
     {
         Debug.Log("NUM:" + gestureNUM);
-        if (inputType == 2)
-        {
-            if (gestureNUM == 1)
-            {
-                SendUdpMessage("GO");
-            }
-            else if (gestureNUM == 2)
-            {
-                SendUdpMessage("STOP");
-            }
-            else if (gestureNUM == 3)
-            {
-                SendUdpMessage("ROTATE");
-            }
-        }
     }
 
     public void OnSendData_Up()
     {
-        if (inputType == 1)
-        {
-            SendUdpMessage("section1"); // 로봇이 section1로 이동
-        }
+        SendUdpMessage("section1"); // 로봇이 section1로 이동
     }
 
     public void OnSendData_Down()
     {
-        if (inputType == 1)
-        {
-            SendUdpMessage("section3"); // 로봇이 section3로 이동
-        }
+        SendUdpMessage("section3"); // 로봇이 section3로 이동
     }
 
     public void OnSendData_Right()
     {
-        if (inputType == 1)
-        {
-            SendUdpMessage("section2"); // 로봇이 section2로 이동
-        }
-    }
-
-    public void OnConvertInput()
-    {
-        if (inputType == 1)
-        {
-            inputType = 2;
-            Debug.Log("2");
-            buttonText.text = "Gesture";
-        }
-        else if (inputType == 2)
-        {
-            inputType = 1;
-            Debug.Log("1");
-            buttonText.text = "UI";
-        }
+        SendUdpMessage("section2"); // 로봇이 section2로 이동
     }
 
     private void SendUdpMessage(string message)
